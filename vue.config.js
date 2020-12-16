@@ -4,7 +4,8 @@ module.exports = {
       sass: {
         prependData: `
           @import "@/assets/variables.sass"
-          `
+          @import "@/assets/fields.sass"
+        `
       }
     }
   }

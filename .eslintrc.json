@@ -16,7 +16,11 @@
   ],
   "rules": {
     "space-before-function-paren": "off",
-    "indent": "warn",
+    "indent": "off",
+    "no-empty": "warn",
+    "no-multiple-empty-lines": "warn",
+    "space-before-blocks": "warn",
+    "comma-spacing": "warn",
     "quotes": "warn",
     "eqeqeq": "warn",
     "semi": "warn",
@@ -27,8 +31,8 @@
     "padded-blocks": "warn",
     "eol-last": "warn",
     "no-return-assign": "warn",
+    "vue/no-multiple-template-root": "off",
     "vue/no-unused-components": "warn",
-    "vue/no-multiple-template-root": "warn",
     "vue/valid-template-root": "warn"
   }
 }
