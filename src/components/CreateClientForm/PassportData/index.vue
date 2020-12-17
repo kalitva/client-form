@@ -1,16 +1,17 @@
 <template>
-  <div class="client-form__section">
-    <Selector :label="'Тип документа'" :placeholder="'Выберите документ...'" :options="docTypes"/>
+  <div>
+    <div class="client-form__section">
+      <Selector :label="'Тип документа'" :placeholder="'Выберите документ...'" :options="docTypes"/>
+    </div>
+    <div class="client-form__section">
+      <TextField :label="'Серия'" />
+      <TextField :label="'Номер'" />
+      <TextField :label="'Кем выдан'" />
+    </div>
+    <div class="client-form__section">
+      <DateField :label="'Дата выдачи'" />
+    </div>
   </div>
-  <div class="client-form__section">
-    <TextField :label="'Серия'" />
-    <TextField :label="'Номер'" />
-    <TextField :label="'Кем выдан'" />
-  </div>
-  <div class="client-form__section">
-    <DateField :label="'Дата выдачи'" />
-  </div>
-
 </template>
 
 <script>
@@ -27,7 +28,3 @@
     }
   }
 </script>
-
-<style>
-
-</style>

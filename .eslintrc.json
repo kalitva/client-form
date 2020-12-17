@@ -17,6 +17,10 @@
   "rules": {
     "space-before-function-paren": "off",
     "indent": "off",
+    "array-bracket-spacing": "warn",
+    "prefer-const": "warn",
+    "func-call-spacing": "warn",
+    "key-spacing": "warn",
     "no-empty": "warn",
     "no-multiple-empty-lines": "warn",
     "space-before-blocks": "warn",
@@ -31,7 +35,7 @@
     "padded-blocks": "warn",
     "eol-last": "warn",
     "no-return-assign": "warn",
-    "vue/no-multiple-template-root": "off",
+    "vue/no-multiple-template-root": "warn",
     "vue/no-unused-components": "warn",
     "vue/valid-template-root": "warn"
   }

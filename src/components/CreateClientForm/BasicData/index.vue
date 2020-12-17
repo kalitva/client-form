@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="client-form__section">
     <TextField :label="'Фамилия'" />
     <TextField :label="'Имя'" />
@@ -18,6 +19,7 @@
   <div class="client-form__section">
     <SMSCheckbox />
   </div>
+</div>
 </template>
 
 <script>
