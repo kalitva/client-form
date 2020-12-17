@@ -1,19 +1,19 @@
 <template>
-  <div class="birth-date">
-    <label>Дата рождения:</label>
+  <div class="date-field">
+    <label>{{ label }}</label>
     <div>
       <input placeholder="- год -" @click="openYears" @focus="openYears" @keypress.prevent>
-      <ul v-show="showYears" class="birth-date__modal year">
+      <ul v-show="showYears" class="date-field__modal year">
         <li v-for="year of years" :key="year" @click="choseValue">{{ year }}</li>
       </ul>
       <input placeholder="  - месяц -" @click="openMonths" @focus="openMonths" @keypress.prevent>
-      <ul class="birth-date__modal month" v-show="showMonths">
+      <ul class="date-field__modal month" v-show="showMonths">
         <li v-for="month of months" :key="month" @click="[choseValue($event), generateDays($event)]">
           {{ month.name }}
         </li>
       </ul>
       <input placeholder="- число -" @click="openDays" @focus="openDays" @keypress.prevent>
-      <ul class="birth-date__modal day" v-show="showDays">
+      <ul class="date-field__modal day" v-show="showDays">
         <li v-for="day of days" :key="day" @click="choseValue">{{ day }}</li>
       </ul>
     </div>
@@ -22,6 +22,7 @@
 
 <script>
   export default {
+    props: ['label'],
     data() {
       return {
         showYears: false,
@@ -95,7 +96,7 @@
 </script>
 
 <style lang="sass">
-  .birth-date
+  .date-field
     position: relative
     &__modal
       top: 6rem

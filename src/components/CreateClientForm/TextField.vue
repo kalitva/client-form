@@ -1,13 +1,18 @@
 <template>
   <div class="initial">
     <label @click="focusInput">{{ label }}</label>
-    <input @focus="selectInput" @blur="deselectInput" v-model="value" autofocus>
+    <input autofocus
+      @focus="selectInput"
+      @blur="deselectInput"
+      v-model="value"
+      :placeholder="placeholder"
+    >
   </div>
 </template>
 
 <script>
 export default {
-  props: ['label'],
+  props: ['label', 'placeholder'],
   data() {
     return {
       value: ''

@@ -1,33 +1,25 @@
 <template>
   <form class="client-form">
-    <div class="client-form__section">
-      <Initial :label="'Фамилия'" />
-      <Initial :label="'Имя'" />
-      <Initial :label="'Отчество'" />
-    </div>
-    <div class="client-form__section">
-      <BirthDate />
-      <Sex />
-    </div>
-    <div class="client-form__section">
-      <ClientGroup />
-      <Doctor />
-    </div>
-    <div class="client-form__section">
-      <SMSCheckbox />
-    </div>
+    <BasicData v-if="showBasicInfo" />
+    <Address v-if="showAddress" />
+    <PassportData v-if="showPassportData" />
   </form>
 </template>
 
 <script>
-  import Initial from './Initial.vue'
-  import Sex from './Sex'
-  import BirthDate from './BirthDate'
-  import ClientGroup from './ClientGroup'
-  import Doctor from './Doctor'
-  import SMSCheckbox from './SMSCheckbox'
+  import BasicData from './BasicData'
+  import Address from './Address'
+  import PassportData from './PassportData'
+
   export default {
-    components: { Initial, Sex, BirthDate, ClientGroup, Doctor, SMSCheckbox }
+    components: { BasicData, Address, PassportData },
+    data() {
+      return {
+        showBasicInfo: false,
+        showAddress: false,
+        showPassportData: true
+      }
+    }
   }
 </script>
 

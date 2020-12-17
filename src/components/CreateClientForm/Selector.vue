@@ -1,23 +1,21 @@
 <template>
-  <div class="doctor">
-    <label>Лечащий врач</label>
+  <div class="selector">
+    <label> {{ label }}</label>
     <select>
-      <option value='' disabled selected hidden>Выберите доктора...</option>
-      <option>Иванов Иван</option>
-      <option>Петров Петр</option>
-      <option>Сидоров Сидор</option>
+      <option value='' disabled selected hidden>{{ placeholder }}</option>
+      <option v-for="option of options" :key="option">{{ option }}</option>
     </select>
   </div>
 </template>
 
 <script>
 export default {
-
+  props: ['label', 'placeholder', 'options']
 }
 </script>
 
 <style lang="sass">
-  .doctor
+  .selector
     label
       @extend .label
       display: block
