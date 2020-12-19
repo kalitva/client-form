@@ -1,6 +1,6 @@
 <template>
   <div class="date-field">
-    <label>{{ label }}</label>
+    <label :required="required">{{ label }}</label>
     <div>
       <input placeholder="- год -" @focus="openYears" @keypress.prevent>
       <ul v-show="showYears" class="date-field__modal year">
@@ -22,7 +22,7 @@
 
 <script>
   export default {
-    props: ['label'],
+    props: ['label', 'required'],
     data() {
       return {
         showYears: false,

@@ -2,7 +2,11 @@
   font-size: 1.3rem
   font-weight: 300
   color: $color-dark
- 
+
+.label[required]::after
+  content: ' *'
+  color: $color-warning
+
 .input-field
   border: none
   border-bottom: 1px solid $color-light
@@ -24,4 +28,3 @@ button:focus, select:focus
   color: $color-medium
   text-align: center
   font: 200 2rem $font-stack
-

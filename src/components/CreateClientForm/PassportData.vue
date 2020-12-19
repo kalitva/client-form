@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="client-form__section">
-      <Selector :label="'Тип документа'" :placeholder="'Выберите документ...'" :options="docTypes"/>
+      <Selector :label="'Тип документа'" required="true" :placeholder="'Выберите документ...'" :options="docTypes"/>
     </div>
     <div class="client-form__section">
       <TextField :label="'Серия'" />
@@ -9,15 +9,15 @@
       <TextField :label="'Кем выдан'" />
     </div>
     <div class="client-form__section">
-      <DateField :label="'Дата выдачи'" />
+      <DateField :label="'Дата выдачи'" :required="true" />
     </div>
   </div>
 </template>
 
 <script>
-  import Selector from '../Selector'
-  import TextField from '../TextField'
-  import DateField from '../DateField'
+  import Selector from './Selector'
+  import TextField from './TextField'
+  import DateField from './DateField'
 
   export default {
     components: { Selector, TextField, DateField },

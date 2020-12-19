@@ -1,16 +1,16 @@
 <template>
 <div>
   <div class="client-form__section">
-    <TextField :label="'Фамилия'" />
-    <TextField :label="'Имя'" />
+    <TextField :label="'Фамилия'" :required="true"/>
+    <TextField :label="'Имя'" :required="true" />
     <TextField :label="'Отчество'" />
   </div>
   <div class="client-form__section">
-    <DateField label="Дата рождения"/>
+    <DateField label="Дата рождения" :required="true" />
     <Sex />
   </div>
   <div class="client-form__section">
-    <TextField :label="'Номер телефона'" :placeholder="'7-(987)-654-32-10'" />
+    <TextField :label="'Номер телефона'" :placeholder="'7-(987)-654-32-10'" required="true" />
   </div>
   <div class="client-form__section">
     <ClientGroup />

@@ -8,7 +8,7 @@
     </div>
     <div class="client-form__section">
       <TextField :label="'Регион'" />
-      <TextField :label="'Город'" />
+      <TextField :label="'Город'" required="true" />
     </div>
     <div class="client-form__section">
       <TextField :label="'Улица'" />
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import TextField from '../TextField'
+  import TextField from './TextField'
 
   export default {
     components: { TextField }

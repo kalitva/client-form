@@ -1,6 +1,6 @@
 <template>
   <div class="selector">
-    <label> {{ label }}</label>
+    <label :required="required"> {{ label }}</label>
     <select>
       <option value='' disabled selected hidden>{{ placeholder }}</option>
       <option v-for="option of options" :key="option">{{ option }}</option>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  props: ['label', 'placeholder', 'options']
+  props: ['label', 'required', 'placeholder', 'options']
 }
 </script>
 
