@@ -1,11 +1,11 @@
 <template>
-  <form class="client-form">
+  <form ref="clientForm" class="client-form">
     <BasicData v-show="modals[BASIC_DATA_INDEX]" />
     <Address v-show="modals[ADDRESS_INDEX]" />
     <PassportData v-show="modals[PASSPORT_DATA_INDEX]" />
     <div class="client-form__navigation">
       <button :disabled="disablePreviousButton" @click.prevent="togglePreviousWindow">Назад</button>
-      <button @click.prevent="toggleNextWindow">Далее</button>
+      <button @click.prevent="toggleNextWindow">{{ nextButtonContent }}</button>
     </div>
   </form>
 </template>
@@ -22,15 +22,21 @@
         BASIC_DATA_INDEX: 0,
         ADDRESS_INDEX: 1,
         PASSPORT_DATA_INDEX: 2,
+        formElement: null,
         openedWindow: 0,
         modals: [true, false, false],
         disablePreviousButton: true
       }
     },
+    computed: {
+      nextButtonContent() {
+        return this.openedWindow === this.PASSPORT_DATA_INDEX ? 'Готово' : 'Далее'
+      }
+    },
     methods: {
       toggleNextWindow() {
         if (this.openedWindow >= 2) {
-          this.submit()
+          this.handleSubmit()
           return
         }
         this.disablePreviousButton = false
@@ -46,9 +52,13 @@
           this.disablePreviousButton = true
         }
       },
-      submit() {
+      handleSubmit(event) {
         alert('submit')
+        this.formElement.submit()
       }
+    },
+    mounted() {
+      this.formElement = this.$refs.clientForm
     }
   }
 </script>

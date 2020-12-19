@@ -1,28 +1,27 @@
 .label
   font-size: 1.3rem
-  font-weight: 200
+  font-weight: 300
   color: $color-dark
  
 .input-field
   border: none
   border-bottom: 1px solid $color-light
   margin: 2rem 0
-  font-size: 2rem
-  font-weight: 200
+  font: 200 2rem $font-stack
   background-color: $color-secondary
   outline: none
   color: $color-dark
 
+button:focus, select:focus
+  outline: none
+  
 .text-field::placeholder
   color: $color-medium
   text-align: center
+  font: 200 1rem $font-stack
 
-.select-items
-  position: absolute
-  max-height: 15rem
-  overflow: auto
+::-webkit-input-placeholder 
+  color: $color-medium
   text-align: center
-  font: 200 1.5rem $font-stack
-  background-color: $color-extra-light
-  color: $color-dark
-  scrollbar-width: thin
+  font: 200 2rem $font-stack
+

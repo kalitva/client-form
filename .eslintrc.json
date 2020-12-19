@@ -35,7 +35,7 @@
     "padded-blocks": "warn",
     "eol-last": "warn",
     "no-return-assign": "warn",
-    "vue/no-multiple-template-root": "warn",
+    "vue/no-multiple-template-root": "off",
     "vue/no-unused-components": "warn",
     "vue/valid-template-root": "warn"
   }

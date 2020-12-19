@@ -28,7 +28,6 @@
         showYears: false,
         showMonths: false,
         showDays: false,
-        years: this.generateYearsArray(),
         months: [
           { name: 'Январь', length: 31 },
           { name: 'Февраль', length: 28 },
@@ -46,8 +45,10 @@
         days: null
       }
     },
-    directive() {
-      alert(alert)
+    mounted() {
+      this.years = Array(100)
+        .fill(new Date().getFullYear())
+        .map((year, index) => year - index)
     },
     methods: {
       openYears() {
@@ -75,11 +76,6 @@
         this.closeMonths()
         this.closeDays()
       },
-      generateYearsArray() {
-        return Array(100)
-          .fill(new Date().getFullYear())
-          .map((year, index) => year - index)
-      },
       generateDays(event) {
         const choosenMonth = this.months.find(month => month.name === event.target.textContent)
         this.checkValueOfDay(choosenMonth.length, event)
@@ -103,7 +99,15 @@
     &__modal
       top: 6rem
       width: 9rem
-      @extend .select-items
+      position: absolute
+      max-height: 15rem
+      overflow: auto
+      text-align: center
+      font: 200 1.5rem $font-stack
+      background-color: $color-extra-light
+      color: $color-dark
+      scrollbar-width: thin
+      cursor: default
       li
         list-style-type: none
         cursor: pointer

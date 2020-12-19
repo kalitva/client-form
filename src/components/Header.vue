@@ -2,7 +2,7 @@
   <header class="main-header">
     <div class="wrapper">
         <div class="main-header__title">
-          <h1>Доктор Айболит</h1>
+          <h1>Клиника Айболит</h1>
           <p>Всех излечит, исцелит Добрый доктор Айболит</p>
         </div>
       <div class="main-header__contacts">
@@ -24,12 +24,13 @@
       align-self: center
       color: $color-extra-light
       h1
-        font-weight: 200
+        font-weight: 300
         font-size: 1.9rem
       p
         max-width: 15rem
         padding-top: 0.2rem
         padding-left: 0.4rem
+        font-size: 1rem
     &__contacts
       align-self: center
       a
