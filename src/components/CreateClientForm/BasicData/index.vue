@@ -29,7 +29,9 @@
       />
     </div>
     <div class="client-form__section">
-      <ClientGroup />
+      <ClientGroup :required="true"
+                   @validate="validateClientGroup($event), $emit('validate', validated)"
+      />
       <Selector :label="'Лечащий врач'" :options="doctors" :placeholder="'Выберите доктора...'" />
     </div>
     <div class="client-form__section">
@@ -57,8 +59,9 @@
         nameValidated: false,
         phoneNumberValidated: false,
         dateValidated: false,
+        clientGroupValidated: false,
         validated: false,
-        doctors: ['Иванов Иван', 'Петров Петр', 'Сидоров Сидор'],
+        doctors: ['Иванов', 'Захаров', 'Чернышева'],
 
         capitalizeFormatter: (initial) => {
           return initial.charAt(0).toUpperCase() + initial.slice(1)
@@ -106,6 +109,7 @@
             && this.nameValidated
             && this.phoneNumberValidated
             && this.dateValidated
+            && this.clientGroupValidated
       },
       validateSurname(validated) {
         this.surnameValidated = validated
@@ -121,6 +125,10 @@
       },
       validateDate(validated) {
         this.dateValidated = validated
+        this.validate()
+      },
+      validateClientGroup(validated) {
+        this.clientGroupValidated = validated
         this.validate()
       }
     }

@@ -34,7 +34,7 @@
         openedWindow: 0,
         modals: [true, false, false],
         disablePreviousButton: true,
-        disableNextButton: false, // !!!!!!!!!!!!!!!!!!!!!
+        disableNextButton: true,
         clientCreatedModal: false
       }
     },
@@ -127,4 +127,6 @@
         background-color: $color-extra-light
         font: 200 1.5rem $font-stack
         color: $color-dark
+    @media screen and (max-width: 550px)
+      padding: 3rem 3rem
 </style>

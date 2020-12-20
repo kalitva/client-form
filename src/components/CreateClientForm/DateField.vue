@@ -170,17 +170,17 @@
       width: 9rem
       cursor: default
     input[name="year"]
-      width: 7rem
+      max-width: 7rem
     input[name="month"]
       width: 11rem
     input[name="day"]
       width: 9rem
     .year
       left: 1rem
-      width: 5rem
+      width: 6rem
     .month
       left: 10rem
-      width: 8rem
+      width: 9rem
     .day
       left: 24rem
       width: 5rem
