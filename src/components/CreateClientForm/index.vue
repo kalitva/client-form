@@ -1,5 +1,5 @@
 <template>
-  <form ref="clientForm" class="client-form">
+  <form ref="clientForm" class="client-form" autocomplete="off">
     <BasicData @validate="validate($event)" v-show="modals[basicDataIndex]" />
     <Address @validate="validate($event)" v-show="modals[addressIndex]" />
     <PassportData @validate="validate($event)" v-show="modals[passportDataIndex]" />
@@ -8,7 +8,12 @@
     </div>
     <div class="client-form__navigation">
       <button :disabled="disablePreviousButton" @click.prevent="togglePreviousWindow">Назад</button>
-      <button :disabled="disableNextButton" @click.prevent="toggleNextWindow">{{ nextButtonContent }}</button>
+      <button :disabled="disableNextButton" @click.prevent="toggleNextWindow">
+        {{ nextButtonContent }}
+      </button>
+    </div>
+    <div class="client-form__created" v-if="clientCreatedModal" @click="clientCreatedModal = false">
+      <p class="client-form__created__message">Вы успешно зарегестрировались</p>
     </div>
   </form>
 </template>
@@ -29,7 +34,8 @@
         openedWindow: 0,
         modals: [true, false, false],
         disablePreviousButton: true,
-        disableNextButton: false // !!!!!!!!!!!!!!!!!!!!!
+        disableNextButton: false, // !!!!!!!!!!!!!!!!!!!!!
+        clientCreatedModal: false
       }
     },
     computed: {
@@ -40,7 +46,7 @@
     methods: {
       toggleNextWindow() {
         if (this.openedWindow >= this.passportDataIndex) {
-          this.handleSubmit()
+          this.clientCreatedModal = true
           return
         }
         this.disablePreviousButton = false
@@ -57,22 +63,16 @@
           this.disablePreviousButton = true
         }
       },
-      handleSubmit(event) {
-        alert('submit')
-        this.formElement.submit()
-      },
       validate(validated) {
         this.disableNextButton = !validated
       }
-    },
-    mounted() {
-      this.formElement = this.$refs.clientForm
     }
   }
 </script>
 
 <style lang="sass">
   .client-form
+    position: relative
     max-width: 90rem
     margin: 0 auto
     padding: 3rem 8rem
@@ -106,4 +106,25 @@
         background-color: $color-light
         color: $color-medium
         cursor: default
+    &__created
+      position: absolute
+      display: flex
+      justify-content: center
+      align-items: center
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background-color: rgba(255, 255, 255, .5)
+      &__message
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 32rem
+        height: 20rem
+        border: 1px dotted $color-light
+        border-radius: 0.5rem
+        background-color: $color-extra-light
+        font: 200 1.5rem $font-stack
+        color: $color-dark
 </style>

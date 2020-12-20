@@ -1,9 +1,9 @@
 <template>
   <div class="selector">
     <label :required="required"> {{ label }}</label>
-    <select>
+    <select @change="$emit('validate', true)">
       <option value='' disabled selected hidden>{{ placeholder }}</option>
-      <option @click="$emit('validate', true)" v-for="option of options" :key="option">{{ option }}</option>
+      <option v-for="option of options" :key="option">{{ option }}</option>
     </select>
   </div>
 </template>
