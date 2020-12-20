@@ -2,13 +2,16 @@
   <div>
     <div class="client-form__section">
       <TextField :label="'Страна'" />
-    </div>
-    <div class="client-form__section">
       <TextField :label="'Почтовый индекс'" />
     </div>
     <div class="client-form__section">
       <TextField :label="'Регион'" />
-      <TextField :label="'Город'" required="true" />
+      <TextField :label="'Город'"
+                 :matchers="matchers"
+                 :formatter="capitalizeFormatter"
+                 required="true"
+                 @validate="validate($event), $emit('validate', validated)"
+      />
     </div>
     <div class="client-form__section">
       <TextField :label="'Улица'" />
@@ -21,6 +24,23 @@
   import TextField from './TextField'
 
   export default {
-    components: { TextField }
+    components: { TextField },
+    data() {
+      return {
+        validated: false,
+        matchers: [
+          { message: 'Слишком короткое имя города', match: city => city.length > 2 }
+        ],
+        capitalizeFormatter: (string) => {
+          return string.charAt(0).toUpperCase() + string.slice(1)
+            .replace(/\s|\d/, '')
+        }
+      }
+    },
+    methods: {
+      validate(validated) {
+        this.validated = validated
+      }
+    }
   }
 </script>

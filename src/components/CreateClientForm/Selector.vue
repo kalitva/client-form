@@ -3,7 +3,7 @@
     <label :required="required"> {{ label }}</label>
     <select>
       <option value='' disabled selected hidden>{{ placeholder }}</option>
-      <option v-for="option of options" :key="option">{{ option }}</option>
+      <option @click="$emit('validate', true)" v-for="option of options" :key="option">{{ option }}</option>
     </select>
   </div>
 </template>

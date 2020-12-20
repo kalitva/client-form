@@ -17,6 +17,10 @@
   "rules": {
     "space-before-function-paren": "off",
     "indent": "off",
+    "operator-linebreak": "off",
+    "no-extend-native": "off",
+    "spaced-comment": "warn",
+    "object-curly-newline": "warn",
     "array-bracket-spacing": "warn",
     "prefer-const": "warn",
     "func-call-spacing": "warn",
