@@ -1,19 +1,4 @@
 # client-form
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Hello! I've never used Vue before and some pieces of the code are quite messy. If I have a little
+more time I could do it better properly using the oportunities that Vue provides.
