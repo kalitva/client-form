@@ -11,6 +11,12 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
+  devServer: {
+    open: true,
+    port: 3030,
+    publicPath: '/'
+    // overlay: true
+  },
   module: {
     rules: [
       {
@@ -22,8 +28,12 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
+      },
+      {
+        test: /\.(css|sass)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
   plugins: [new HtmlWebPackPlugin({ template: './src/index.html' })]
-}
+};
