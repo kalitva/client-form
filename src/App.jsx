@@ -1,9 +1,13 @@
 import React from 'react';
+import Header from './components/Header';
 
 function App() {
   return (
     <React.Fragment>
-      <h1>Hello React!</h1>
+      <Header />
+      <form>
+
+      </form>
     </React.Fragment>
   );
 }

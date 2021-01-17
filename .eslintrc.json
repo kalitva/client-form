@@ -62,6 +62,7 @@
     "react/jsx-first-prop-new-line": "off",
     "react/destructuring-assignment": "off",
     "react/jsx-fragments": "off",
+    "react/no-unescaped-entities": "off",
     "react/sort-comp": "warn",
     "react/jsx-indent": "warn",
     "react/require-render-return": "warn",
